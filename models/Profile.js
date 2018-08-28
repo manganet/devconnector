@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
 const ProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: "users"
   },
   handle: {
     type: String,
@@ -35,62 +35,64 @@ const ProfileSchema = new Schema({
   githubusername: {
     type: String
   },
-  experience: [{
-    title: {
-      type: String,
-      required: true
-    },
-    company: {
-      type: String,
-      required: true
-    },
-    location: {
-      type: String
-    },
-    from: {
-      type: Date,
-      required: true
-    },
-    to: {
-      type: Date,
-      required: true
-    },
-    current: {
-      type: Boolean,
-      default: false
-    },
-    description: {
-      type: String
+  experience: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      company: {
+        type: String,
+        required: true
+      },
+      location: {
+        type: String
+      },
+      from: {
+        type: Date,
+        required: true
+      },
+      to: {
+        type: Date
+      },
+      current: {
+        type: Boolean,
+        default: false
+      },
+      description: {
+        type: String
+      }
     }
-  }],
-  education: [{
-    school: {
-      type: String,
-      required: true
-    },
-    degree: {
-      type: String,
-      required: true
-    },
-    fieldofstudy: {
-      type: String
-    },
-    from: {
-      type: Date,
-      required: true
-    },
-    to: {
-      type: Date,
-      required: true
-    },
-    current: {
-      type: Boolean,
-      default: false
-    },
-    description: {
-      type: String
+  ],
+  education: [
+    {
+      school: {
+        type: String,
+        required: true
+      },
+      degree: {
+        type: String,
+        required: true
+      },
+      fieldofstudy: {
+        type: String
+      },
+      from: {
+        type: Date,
+        required: true
+      },
+      to: {
+        type: Date
+      },
+      current: {
+        type: Boolean,
+        default: false
+      },
+      description: {
+        type: String
+      }
     }
-  }],
+  ],
   social: {
     youtube: {
       type: String
@@ -114,4 +116,4 @@ const ProfileSchema = new Schema({
   }
 });
 
-module.exports = Pofile = mongoose.model('profile', ProfileSchema);
+module.exports = Pofile = mongoose.model("profile", ProfileSchema);
