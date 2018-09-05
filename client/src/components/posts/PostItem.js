@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import classnames from "classnames";
+import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, removeLike } from "../../actions/postActions";
 
@@ -29,6 +29,11 @@ class PostItem extends Component {
 
   render() {
     const { post, auth, showActions } = this.props;
+    const thumbIconClass = classnames({
+      "fas fa-thumbs-up": true,
+      "text-success": this.findUserLike(post.likes),
+      "text-secondary": !this.findUserLike(post.likes)
+    });
 
     return (
       <div className="card card-body mb-3">
@@ -53,13 +58,7 @@ class PostItem extends Component {
                   type="button"
                   className="btn btn-light mr-1"
                 >
-                  <i
-                    className={`${
-                      this.findUserLike(post.likes)
-                        ? "text-info"
-                        : "text-secondary"
-                    } fas fa-thumbs-up`}
-                  />
+                  <i className={thumbIconClass} />
                   <span className="badge badge-light">{post.likes.length}</span>
                 </button>
                 <button
